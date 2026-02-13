@@ -1,0 +1,21 @@
+{% extends "version_1/base.html" %}
+
+{% block content %}
+<h2>Visits</h2>
+<table>
+    <tr>
+        <th>Customer</th>
+        <th>Services</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    {% for visit in visits %}
+    <tr>
+        <td>{{ visit.customer.name }}</td>
+        <td>{{ visit.services }}</td>
+        <td>{{ visit.amount_paid }}</td>
+        <td>{{ visit.visit_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
