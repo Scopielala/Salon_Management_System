@@ -1,0 +1,30 @@
+{% extends "version_1/base.html" %}
+
+{% block content %}
+<h2>{{ customer.name }}</h2>
+<p><strong>Phone:</strong> {{ customer.phone }}</p>
+{% if customer.email %}<p><strong>Email:</strong> {{ customer.email }}</p>{% endif %}
+<p><strong>Customer since:</strong> {{ customer.created_at|date:"d M Y" }}</p>
+
+<h3 style="margin-top: 24px; margin-bottom: 12px;">Visit History</h3>
+{% if visits %}
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Services</th>
+        <th>Amount</th>
+        <th>Notes</th>
+    </tr>
+    {% for visit in visits %}
+    <tr>
+        <td>{{ visit.visit_date }}</td>
+        <td>{{ visit.services }}</td>
+        <td>{{ visit.amount_paid }}</td>
+        <td>{{ visit.notes|default:"-" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No visits recorded yet.</p>
+{% endif %}
+{% endblock %}

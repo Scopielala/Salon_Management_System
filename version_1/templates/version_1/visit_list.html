@@ -11,7 +11,7 @@
     </tr>
     {% for visit in visits %}
     <tr>
-        <td>{{ visit.customer.name }}</td>
+        <td><a href="{% url 'customer_profile' visit.customer.pk %}" style="color: #2563eb; text-decoration: none;">{{ visit.customer.name }}</a></td>
         <td>{{ visit.services }}</td>
         <td>{{ visit.amount_paid }}</td>
         <td>{{ visit.visit_date }}</td>
