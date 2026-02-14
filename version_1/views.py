@@ -5,7 +5,9 @@ from django.urls import reverse
 from .models import Customer, Visit
 from .forms import CustomerForm, VisitForm
 
-# Create your views here.
+def homepage(request):
+    return render(request, "version_1/homepage.html")
+
 def create_customer(request):
     if request.method == "POST":
         form = CustomerForm(request.POST)
@@ -22,7 +24,7 @@ def create_visit(request):
         form = VisitForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("visit_list")
+            return redirect("dashboard")
     else:
         initial = {}
         phone = request.GET.get("phone")

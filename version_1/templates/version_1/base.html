@@ -114,11 +114,11 @@
 </head>
 <body>
     <header>
-        <h1>SALON MANAGER</h1>
+        <h1><a href="{% url 'homepage' %}" style="color: #fff; text-decoration: none;">SALON MANAGER</a></h1>
         <nav>
-            <a href="/">Visits</a>
-            <a href="/customers/new/">New Customer</a>
-            <a href="/visits/new/">New Visit</a>
+            <a href="{% url 'create_customer' %}">New Customer</a>
+            <a href="{% url 'create_visit' %}">New Visit</a>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
         </nav>
     </header>
     <div class="content">
